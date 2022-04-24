@@ -3,7 +3,8 @@ import { Outlet, Link } from "react-router-dom";
 import React from "react";
 // import Menu from "./routes/menu";
 
-function App() {
+
+const App = () => {
   return (
     <div className="container">
       <div

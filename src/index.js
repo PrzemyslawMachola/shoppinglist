@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {createContext, useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
@@ -11,21 +11,39 @@ import NewList from "./routes/newList";
 import Lists from "./routes/lists";
 import Products from "./routes/products"
 
+export const AppContext = createContext(null);
+
+const Main = () => {
+
+    const [state, setState] = useState({
+        name: "Przemek"
+    })
+
+    return (
+        <BrowserRouter>
+            <AppContext.Provider value={{
+                state, setState
+            }}>
+                <Routes>
+                    <Route path="/" element={<App />}>
+                        <Route path="/" element={<MainView />} />
+                        <Route path="/routes/newList" element={<NewList />} />
+                        <Route path="/routes/Lists" element={<Lists />} />
+                        <Route path="/routes/Products" element={<Products />} />
+                    </Route>
+                </Routes>
+            </AppContext.Provider>
+        </BrowserRouter>
+    )
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   //   <App />
   // </React.StrictMode>
-    <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<App />}>
-                <Route path="/" element={<MainView />} />
-                <Route path="/routes/newList" element={<NewList />} />
-                <Route path="/routes/Lists" element={<Lists />} />
-                <Route path="/routes/Products" element={<Products />} />
-            </Route>
-        </Routes>
-    </BrowserRouter>
+
+    <Main />
 );
 
 // If you want to start measuring performance in your app, pass a function
