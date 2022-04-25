@@ -5,7 +5,6 @@ const Lists = () => {
     return (
         <div>
             <div className="center">List of lists</div>
-            <Outlet />
         </div>
     )
 }

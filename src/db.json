@@ -1,0 +1,36 @@
+{
+  "lists": [
+    {
+      "name": "pierwsze zakupy",
+      "id": 1,
+      "productsToBuy": {}
+    }
+  ],
+  "products": [
+    {
+      "name": "chleb",
+      "category": "pieczywo",
+      "id": 1
+    },
+    {
+      "name": "",
+      "category": "",
+      "id": 2
+    },
+    {
+      "name": "jajko",
+      "category": "nabiał",
+      "id": 3
+    },
+    {
+      "name": "mleko",
+      "category": "nabiał",
+      "id": 4
+    },
+    {
+      "name": "bułki",
+      "category": "pieczywo",
+      "id": 5
+    }
+  ]
+}

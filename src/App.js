@@ -1,11 +1,25 @@
 import './App.scss';
 import { Outlet, Link } from "react-router-dom";
-import React from "react";
+import React, {useEffect, useContext} from "react";
+import {AppContext} from "./index";
 // import Menu from "./routes/menu";
 
-
 const App = () => {
-  return (
+
+    const {state, setState} = useContext(AppContext);
+    const API = "http://localhost:3005";
+
+    useEffect(()=>{
+        fetch(`${API}/db`)
+            .then(response => response.json())
+            .then(data => {
+                setState(data);
+            })
+            .catch(error => {
+                console.log(error);
+        })},[]);
+
+    return (
     <div className="container">
       <div
           style={{

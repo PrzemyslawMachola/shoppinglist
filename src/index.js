@@ -15,9 +15,27 @@ export const AppContext = createContext(null);
 
 const Main = () => {
 
+    // const [state, setState] = useState({
+    //     name: "Przemek"
+    // })
+
     const [state, setState] = useState({
-        name: "Przemek"
-    })
+            products: [
+                {
+                    name: "a",
+                    category: "s",
+                    id: "1",
+                },
+                {
+                    name: "b",
+                    category: "d",
+                    id: "2",
+                },
+            ],
+            lists: {
+
+            }
+        })
 
     return (
         <BrowserRouter>

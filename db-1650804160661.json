@@ -1,0 +1,16 @@
+{
+  "lists": [
+    {
+      "name": "pierwsze zakupy",
+      "id": 1,
+      "productsToBuy": {}
+    }
+  ],
+  "products": [
+    {
+      "name": "chleb",
+      "category": "pieczywo",
+      "id": 1
+    }
+  ]
+}
