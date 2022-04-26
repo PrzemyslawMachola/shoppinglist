@@ -4,7 +4,7 @@ import {AppContext} from "../index";
 const Products = () => {
     const {state, setState} = useContext(AppContext);
 
-    const handleSubmit = function(e) {
+    const handleAdd = function(e) {
         e.preventDefault();
         const newProductName = document.querySelector("#newProductName").value;
         const newProductCategory = document.querySelector("#newProductCategory").value;
@@ -26,30 +26,58 @@ const Products = () => {
             .catch(error => {
                 console.log(error);
             })
+    };
+
+    const handleRemove = (id) => {
+        console.log(id);
+
+        fetch("http://localhost:3005/products/" + id, {method:"DELETE"})
+            // .then(result=>result.json())
+            // .then(data=>{
+            //     console.log(data);
+            //     let filteredCars = cars.filter(element=>element.id !== id)
+            //     setCars(filteredCars)
+            // })
+            // .catch(error=>console.log("error"))
+
+    };
+
+    const handleEdit = () => {
+
     }
 
     return (
-        <div>
-            <div className="center">List of products
-                {state.products.map(function(product) {return <div key={product.id}>{product.name}{product.category}</div>})}
+        <div className="productsContainer">
+            <div className="productsTitle center">Zarządzaj swoimi produktami</div>
+            <div className="productsList">
+                {state.products.map(function(product) {
+                    return (
+                        <div key={product.id} className="product">
+                            <div className="productDescription">
+                                <div className="productName">{product.name}</div>
+                                <div className="productCategory">{product.category}</div>
+                            </div>
+                            <div className="productButtons">
+                                <button className="button productEdit" onClick={handleEdit}>
+                                    <i className="fa-solid fa-pencil"></i>
+                                </button>
+                                <button className="button productRemove" onClick={()=>handleRemove(product.id)}>
+                                    <i className="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </div>
+                    )})}
 
-            {/*    <h1>{state.name}</h1>*/}
-            {/*<button onClick={()=> setState (prev=>({*/}
-            {/*    ...prev,*/}
-            {/*    name: "Paweł"*/}
-            {/*}))}>klik</button>*/}
             </div>
-            <form onSubmit={handleSubmit} className="center">
-                <input type="text" id="newProductName" placeholder="co kupić?"></input>
-                <input type="text" id="newProductCategory" placeholder="kategoria"></input>
-                <button>+</button>
-                {/*<button onSubmit={()=>setState (*/}
-                {/*        products.push( {*/}
-                {/*           name: document.querySelector("#newProductName").value,*/}
-                {/*           category: document.querySelector("#newProductCategory").value,*/}
+            <form onSubmit={handleAdd} className="productsForm product">
+                <div className="">
+                    <input type="text" id="newProductName" placeholder="nowy produkt"></input>
+                    <input type="text" id="newProductCategory" placeholder="kategoria"></input>
+                </div>
+                <button className="newProductButton button">
+                    <i className="fa-solid fa-plus"></i>
+                </button>
 
-                {/*        }))}*/}
-                {/*    >dodaj</button>*/}
             </form>
         </div>
     )

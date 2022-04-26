@@ -15,21 +15,13 @@ export const AppContext = createContext(null);
 
 const Main = () => {
 
-    // const [state, setState] = useState({
-    //     name: "Przemek"
-    // })
-
     const [state, setState] = useState({
             products: [
                 {
-                    name: "a",
-                    category: "s",
-                    id: "1",
-                },
-                {
-                    name: "b",
-                    category: "d",
-                    id: "2",
+                    name: "",
+                    category: "",
+                    id: "",
+                    buyingPreference: [],
                 },
             ],
             lists: {
@@ -39,9 +31,7 @@ const Main = () => {
 
     return (
         <BrowserRouter>
-            <AppContext.Provider value={{
-                state, setState
-            }}>
+            <AppContext.Provider value={{ state, setState }}>
                 <Routes>
                     <Route path="/" element={<App />}>
                         <Route path="/" element={<MainView />} />

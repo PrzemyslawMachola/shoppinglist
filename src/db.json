@@ -10,27 +10,43 @@
     {
       "name": "chleb",
       "category": "pieczywo",
-      "id": 1
-    },
-    {
-      "name": "",
-      "category": "",
-      "id": 2
-    },
-    {
-      "name": "jajko",
-      "category": "nabiał",
-      "id": 3
+      "id": 1,
+      "buyingPreference": []
     },
     {
       "name": "mleko",
       "category": "nabiał",
-      "id": 4
+      "id": 2,
+      "buyingPreference": []
     },
     {
-      "name": "bułki",
-      "category": "pieczywo",
-      "id": 5
+      "name": "woda",
+      "category": "napoje",
+      "id": 3,
+      "buyingPreference": []
+    },
+    {
+      "name": "jabłka",
+      "category": "owoce/warzywa",
+      "id": 4,
+      "buyingPreference": []
+    },
+    {
+      "name": "chusteczki",
+      "category": "chemia",
+      "id": 5,
+      "buyingPreference": []
+    },
+    {
+      "name": "czekolada",
+      "category": "słodycze/przekąski",
+      "id": 6,
+      "buyingPreference": []
+    },
+    {
+      "name": "kurczak",
+      "category": "mięsa",
+      "id": 7
     }
   ]
 }

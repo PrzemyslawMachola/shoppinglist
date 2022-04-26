@@ -1,0 +1,71 @@
+.productsContainer {
+  width: 100%;
+}
+.productsTitle {
+  font-size: 1.75rem;
+  padding: 20px;
+}
+.productsList {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
+}
+.product {
+  background-color: $color-box-background;
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 10px;
+  width: auto;
+  max-width: 500px;
+  gap: 30px;
+  border-radius: 5px;
+  border: 1px dotted $color-text;
+}
+
+.productCategory {
+  font-size: 1rem;
+  //opacity: 0.7;
+  color: $color-blue-accent;
+}
+
+.button {
+  border: none;
+  background: none;
+  font-size: 1.3rem;
+}
+.productButtons {
+  display: flex;
+  gap: 10px;
+  font-size: 1rem;
+
+  .productRemove {
+    color: $color-red-accent;
+  }
+  .productEdit {
+    color: $color-blue-accent;
+  }
+}
+
+.productsForm {
+  display: flex;
+  margin: 20px auto;
+  gap: 20px;
+}
+
+.newProductButton {
+  width: 90px;
+  font-size: 2rem;
+}
+
+#newProductName, #newProductCategory {
+  background-color: $color-background;
+  border: 1px dotted $color-text;
+  border-radius: 5px;
+  font-family: Ubuntu, cursive;
+  height: 1.5rem;
+  font-size: 1.2rem;
+  margin: 5px;
+  padding: 5px;
+}
