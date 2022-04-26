@@ -1,6 +1,7 @@
 @import "reset";
 @import "colors";
 @import "products";
+@import "mainView.scss";
 
 body {
   background-color: $color-background;
@@ -15,7 +16,7 @@ header {
   justify-content: space-between;
   padding: 20px;
   background-color: $color-box-background;
-  border-bottom: 1px dotted $color-text;
+  border-bottom: 1px solid $color-blue-accent;
   font-size: 2rem;
 }
 

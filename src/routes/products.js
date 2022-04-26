@@ -69,7 +69,7 @@ const Products = () => {
                     )})}
 
             </div>
-            <form onSubmit={handleAdd} className="productsForm product">
+            <form onSubmit={handleAdd} className="productsForm">
                 <div className="">
                     <input type="text" id="newProductName" placeholder="nowy produkt"></input>
                     <input type="text" id="newProductCategory" placeholder="kategoria"></input>
