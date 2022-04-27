@@ -3,7 +3,20 @@
     {
       "name": "pierwsze zakupy",
       "id": 1,
-      "productsToBuy": {}
+      "productsToBuy": {
+        "productName": "",
+        "productCategory": "",
+        "quantity": ""
+      }
+    },
+    {
+      "name": "drugie zakupy",
+      "id": 2,
+      "productsToBuy": {
+        "productName": "",
+        "productCategory": "",
+        "quantity": ""
+      }
     }
   ],
   "products": [
@@ -47,6 +60,11 @@
       "name": "kurczak",
       "category": "mięsa",
       "id": 7
+    },
+    {
+      "name": "asdf",
+      "category": "1234",
+      "id": 8
     }
   ]
 }

@@ -24,10 +24,18 @@ const Main = () => {
                     buyingPreference: [],
                 },
             ],
-            lists: {
-
-            }
-        })
+            lists: [
+                {
+                    name: "",
+                    id: "",
+                    productsToBuy: {
+                        productName: "",
+                        productCategory: "",
+                        quantity: ""
+                    }
+                },
+            ]
+    })
 
     return (
         <BrowserRouter>

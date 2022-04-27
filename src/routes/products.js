@@ -47,8 +47,8 @@ const Products = () => {
     }
 
     return (
-        <div className="productsContainer">
-            <div className="productsTitle center">Zarządzaj swoimi produktami</div>
+        <div className="container">
+            <div className="title center">Zarządzaj swoimi produktami</div>
             <div className="productsList">
                 {state.products.map(function(product) {
                     return (
@@ -58,10 +58,10 @@ const Products = () => {
                                 <div className="productCategory">{product.category}</div>
                             </div>
                             <div className="productButtons">
-                                <button className="button productEdit" onClick={handleEdit}>
+                                <button className="button" onClick={handleEdit}>
                                     <i className="fa-solid fa-pencil"></i>
                                 </button>
-                                <button className="button productRemove" onClick={()=>handleRemove(product.id)}>
+                                <button className="button" onClick={()=>handleRemove(product.id)}>
                                     <i className="fa-solid fa-trash-can"></i>
                                 </button>
                             </div>
