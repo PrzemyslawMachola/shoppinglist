@@ -28,11 +28,11 @@ const Main = () => {
                 {
                     name: "",
                     id: "",
-                    productsToBuy: {
+                    productsToBuy: [{
                         productName: "",
                         productCategory: "",
                         quantity: ""
-                    }
+                    }]
                 },
             ]
     })

@@ -17,6 +17,17 @@
         "productCategory": "",
         "quantity": ""
       }
+    },
+    {
+      "name": "testowa",
+      "id": 3,
+      "productsToBuy": [
+        {
+          "productName": "jeden",
+          "productCategory": "dwa",
+          "quantity": 3
+        }
+      ]
     }
   ],
   "products": [
@@ -65,6 +76,11 @@
       "name": "asdf",
       "category": "1234",
       "id": 8
+    },
+    {
+      "name": "nowy",
+      "category": "produkt",
+      "id": 9
     }
   ]
 }
