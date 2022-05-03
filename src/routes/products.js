@@ -1,19 +1,21 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import {AppContext} from "../index";
+import {logDOM} from "@testing-library/react";
 
 const Products = () => {
     const {state, setState} = useContext(AppContext);
+    const [nameInputState, setNameInputState] = useState("");
+    const [categoryInputState, setCategoryInputState] = useState("");
+    const [editId, setEditId] = useState("");
 
     const handleAdd = function(e) {
         e.preventDefault();
-        const newProductName = document.querySelector("#newProductName").value;
-        const newProductCategory = document.querySelector("#newProductCategory").value;
 
         const data = {
-            name: newProductName,
-            category: newProductCategory
+            name: nameInputState,
+            category: categoryInputState
         };
-        fetch("http://localhost:3005/products", {
+        fetch("http://localhost:3005/products/", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {"Content-Type": "application/json"}
@@ -21,29 +23,71 @@ const Products = () => {
             )
             .then(response => response.json())
             .then(data => {
-                console.log(data);
+                setState(prev=>({
+                    ...prev,
+                    products: [...prev.products, data]
+                }))
             })
             .catch(error => {
                 console.log(error);
-            })
+            });
+        setNameInputState("");
+        setCategoryInputState("");
     };
 
     const handleRemove = (id) => {
-        console.log(id);
-
-        fetch("http://localhost:3005/products/" + id, {method:"DELETE"})
-            // .then(result=>result.json())
-            // .then(data=>{
-            //     console.log(data);
-            //     let filteredCars = cars.filter(element=>element.id !== id)
-            //     setCars(filteredCars)
-            // })
-            // .catch(error=>console.log("error"))
-
+        fetch("http://localhost:3005/products/" + id , {method:"DELETE"})
+            .then(result=>result.json())
+            .then(()=>{
+                setState(prev=>({
+                        ...prev,
+                        products: prev.products.filter(element=>element.id !== id)
+                    }));
+            })
+            .catch(error=>console.log("error"))
     };
 
-    const handleEdit = () => {
+    const handleEdit = (id) => {
+        state.products.forEach(element=>{
+            if(element.id === id) {
+                setNameInputState(element.name);
+                setCategoryInputState(element.category);
+                setEditId(id);
+        }})
+    }
 
+    const editProduct = function(e) {
+        e.preventDefault();
+
+        const data = {
+            name: nameInputState,
+            category: categoryInputState,
+            id: editId,
+        };
+
+        fetch("http://localhost:3005/products/" + editId, {
+                method: "PUT",
+                body: JSON.stringify(data),
+                headers: {"Content-Type": "application/json"}
+            }
+        )
+            .then(response => response.json())
+            .then(product =>{
+                const copy = [...state.products];
+                const index = copy.findIndex(el => el.id === editId);
+                copy[index] = product;
+                setState(prev => ({
+                    ...prev,
+                    products: copy
+                }))
+                setEditId("")
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        console.log(state.products)
+        setNameInputState("");
+        setCategoryInputState("");
     }
 
     return (
@@ -58,7 +102,7 @@ const Products = () => {
                                 <div className="productCategory">{product.category}</div>
                             </div>
                             <div className="productButtons">
-                                <button className="button" onClick={handleEdit}>
+                                <button className="button" onClick={()=>handleEdit(product.id)}>
                                     <i className="fa-solid fa-pencil"></i>
                                 </button>
                                 <button className="button" onClick={()=>handleRemove(product.id)}>
@@ -69,13 +113,13 @@ const Products = () => {
                     )})}
 
             </div>
-            <form onSubmit={handleAdd} className="productsForm">
+            <form onSubmit={editId ? editProduct : handleAdd} className="productsForm">
                 <div className="">
-                    <input type="text" id="newProductName" placeholder="nowy produkt"></input>
-                    <input type="text" id="newProductCategory" placeholder="kategoria"></input>
+                    <input type="text" value={nameInputState} onChange={e=>setNameInputState(e.target.value)} id="newProductName" placeholder="nowy produkt"></input>
+                    <input type="text" value={categoryInputState} onChange={e=>setCategoryInputState(e.target.value)} id="newProductCategory" placeholder="kategoria"></input>
                 </div>
                 <button className="newProductButton button">
-                    <i className="fa-solid fa-plus"></i>
+                    {editId ? <i className="fa-solid fa-check"></i> : <i className="fa-solid fa-plus"></i>}
                 </button>
 
             </form>

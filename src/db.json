@@ -17,17 +17,6 @@
         "productCategory": "",
         "quantity": ""
       }
-    },
-    {
-      "name": "testowa",
-      "id": 3,
-      "productsToBuy": [
-        {
-          "productName": "jeden",
-          "productCategory": "dwa",
-          "quantity": 3
-        }
-      ]
     }
   ],
   "products": [
@@ -50,37 +39,14 @@
       "buyingPreference": []
     },
     {
-      "name": "jabłka",
+      "name": "gruszki",
       "category": "owoce/warzywa",
-      "id": 4,
-      "buyingPreference": []
+      "id": 4
     },
     {
       "name": "chusteczki",
       "category": "chemia",
-      "id": 5,
-      "buyingPreference": []
-    },
-    {
-      "name": "czekolada",
-      "category": "słodycze/przekąski",
-      "id": 6,
-      "buyingPreference": []
-    },
-    {
-      "name": "kurczak",
-      "category": "mięsa",
-      "id": 7
-    },
-    {
-      "name": "asdf",
-      "category": "1234",
-      "id": 8
-    },
-    {
-      "name": "nowy",
-      "category": "produkt",
-      "id": 9
+      "id": 5
     }
   ]
 }
