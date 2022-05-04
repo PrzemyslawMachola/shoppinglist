@@ -12,9 +12,15 @@
   color: $color-red-accent;
 }
 
-.fa-angle-left {
-  padding: 24px;
+.fa-angle-left, .fa-square-arrow-right {
+  //padding: 24px;
   color: $color-red-accent;
+  font-size: 2rem;
+}
+
+.fa-angle-right {
+  //padding: 24px;
+  color: $color-blue-accent;
   font-size: 2rem;
 }
 

@@ -9,32 +9,39 @@ import Menu from "./routes/menu";
 import MainView from "./routes/mainView";
 import NewList from "./routes/newList";
 import Lists from "./routes/lists";
-import Products from "./routes/products"
+import {Products} from "./routes/products"
 
 export const AppContext = createContext(null);
 
 const Main = () => {
 
     const [state, setState] = useState({
-            products: [
-                {
-                    name: "",
-                    category: "",
-                    id: "",
-                    buyingPreference: [],
-                },
-            ],
-            lists: [
-                {
-                    name: "",
-                    id: "",
-                    productsToBuy: [{
-                        productName: "",
-                        productCategory: "",
-                        quantity: ""
-                    }]
-                },
-            ]
+        products: [
+            {
+                name: "",
+                category: "",
+                id: "",
+                visibility: true,
+                buyingPreference: [],
+            },
+        ],
+        lists: [
+            {
+                name: "",
+                id: "",
+                productsToBuy: [{
+                    productName: "",
+                    productCategory: "",
+                    quantity: ""
+                }]
+            },
+        ],
+        nameInput: "",
+        categoryInput: "",
+        editId: "",
+        listNameInput: "",
+        displayListName: false,
+        counter: "licznik",
     })
 
     return (
@@ -62,7 +69,4 @@ root.render(
     <Main />
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

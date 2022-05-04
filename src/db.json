@@ -17,36 +17,97 @@
         "productCategory": "",
         "quantity": ""
       }
+    },
+    {
+      "name": "testowa",
+      "id": 3,
+      "productsToBuy": [
+        {
+          "productName": "jeden",
+          "productCategory": "dwa",
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "name": "lista",
+      "id": 4,
+      "productsToBuy": [
+        {
+          "productName": "jeden",
+          "productCategory": "dwa",
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "name": "nowa lista 3",
+      "id": 5,
+      "productsToBuy": []
+    },
+    {
+      "name": "nowa lista 3",
+      "id": 6,
+      "productsToBuy": [
+        {
+          "name": "woda",
+          "category": "napoje",
+          "visibility": false,
+          "id": 3,
+          "buyingPreference": []
+        },
+        {
+          "name": "chleb",
+          "category": "pieczywo",
+          "visibility": false,
+          "buyingPreference": [],
+          "id": 9
+        }
+      ]
     }
   ],
   "products": [
     {
-      "name": "chleb",
-      "category": "pieczywo",
-      "id": 1,
-      "buyingPreference": []
-    },
-    {
       "name": "mleko",
       "category": "nabiał",
+      "visibility": true,
       "id": 2,
       "buyingPreference": []
     },
     {
       "name": "woda",
       "category": "napoje",
+      "visibility": true,
       "id": 3,
       "buyingPreference": []
     },
     {
       "name": "gruszki",
       "category": "owoce/warzywa",
-      "id": 4
+      "visibility": true,
+      "id": 4,
+      "buyingPreference": []
     },
     {
       "name": "chusteczki",
       "category": "chemia",
-      "id": 5
+      "visibility": true,
+      "id": 5,
+      "buyingPreference": []
+    },
+    {
+      "name": "chleb",
+      "category": "pieczywo",
+      "visibility": true,
+      "buyingPreference": [],
+      "id": 9
+    },
+    {
+      "name": "cukierki",
+      "category": "słodycze",
+      "visibility": true,
+      "buyingPreference": [],
+      "id": 10
     }
   ]
 }
