@@ -1,37 +1,8 @@
 {
   "lists": [
     {
-      "name": "pierwsze zakupy",
-      "id": 1,
-      "productsToBuy": {
-        "productName": "",
-        "productCategory": "",
-        "quantity": ""
-      }
-    },
-    {
-      "name": "drugie zakupy",
-      "id": 2,
-      "productsToBuy": {
-        "productName": "",
-        "productCategory": "",
-        "quantity": ""
-      }
-    },
-    {
       "name": "testowa",
       "id": 3,
-      "productsToBuy": [
-        {
-          "productName": "jeden",
-          "productCategory": "dwa",
-          "quantity": 3
-        }
-      ]
-    },
-    {
-      "name": "lista",
-      "id": 4,
       "productsToBuy": [
         {
           "productName": "jeden",
@@ -46,8 +17,8 @@
       "productsToBuy": []
     },
     {
-      "name": "nowa lista 3",
-      "id": 6,
+      "name": "lista4",
+      "id": 7,
       "productsToBuy": [
         {
           "name": "woda",
@@ -57,11 +28,92 @@
           "buyingPreference": []
         },
         {
+          "name": "chusteczki",
+          "category": "chemia",
+          "visibility": false,
+          "id": 5,
+          "buyingPreference": []
+        },
+        {
+          "name": "orzeszki",
+          "category": "przekąski",
+          "visibility": false,
+          "buyingPreference": [],
+          "id": 11
+        }
+      ]
+    },
+    {
+      "name": "lista5",
+      "id": 8,
+      "productsToBuy": [
+        {
+          "name": "woda",
+          "category": "napoje",
+          "visibility": false,
+          "id": 3,
+          "buyingPreference": []
+        },
+        {
+          "name": "chusteczki",
+          "category": "chemia",
+          "visibility": false,
+          "id": 5,
+          "buyingPreference": []
+        },
+        {
           "name": "chleb",
           "category": "pieczywo",
           "visibility": false,
           "buyingPreference": [],
           "id": 9
+        },
+        {
+          "name": "orzeszki",
+          "category": "przekąski",
+          "visibility": false,
+          "buyingPreference": [],
+          "id": 11
+        }
+      ]
+    },
+    {
+      "name": "lista 6",
+      "id": 10,
+      "productsToBuy": [
+        {
+          "name": "mleko",
+          "category": "nabiał",
+          "visibility": false,
+          "id": 2,
+          "buyingPreference": []
+        },
+        {
+          "name": "gruszki",
+          "category": "owoce/warzywa",
+          "visibility": false,
+          "id": 4,
+          "buyingPreference": []
+        },
+        {
+          "name": "chleb",
+          "category": "pieczywo",
+          "visibility": false,
+          "buyingPreference": [],
+          "id": 9
+        }
+      ]
+    },
+    {
+      "name": "112",
+      "id": 11,
+      "productsToBuy": [
+        {
+          "name": "woda",
+          "category": "napoje",
+          "visibility": false,
+          "id": 3,
+          "buyingPreference": []
         }
       ]
     }
@@ -108,6 +160,20 @@
       "visibility": true,
       "buyingPreference": [],
       "id": 10
+    },
+    {
+      "name": "orzeszki",
+      "category": "przekąski",
+      "visibility": true,
+      "buyingPreference": [],
+      "id": 11
+    },
+    {
+      "name": "banany",
+      "category": "owoce",
+      "visibility": true,
+      "buyingPreference": [],
+      "id": 12
     }
   ]
 }

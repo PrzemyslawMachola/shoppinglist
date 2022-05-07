@@ -10,6 +10,7 @@ import MainView from "./routes/mainView";
 import NewList from "./routes/newList";
 import Lists from "./routes/lists";
 import {Products} from "./routes/products"
+import ListView from "./routes/listView";
 
 export const AppContext = createContext(null);
 
@@ -41,6 +42,7 @@ const Main = () => {
         editId: "",
         listNameInput: "",
         displayListName: false,
+        currentList: "",
         counter: "licznik",
     })
 
@@ -53,6 +55,7 @@ const Main = () => {
                         <Route path="/routes/newList" element={<NewList />} />
                         <Route path="/routes/Lists" element={<Lists />} />
                         <Route path="/routes/Products" element={<Products />} />
+                        <Route path="/routes/listview" element={<ListView />} />
                     </Route>
                 </Routes>
             </AppContext.Provider>
@@ -62,10 +65,6 @@ const Main = () => {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>
-
     <Main />
 );
 

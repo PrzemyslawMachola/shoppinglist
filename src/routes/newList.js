@@ -3,18 +3,15 @@ import React from "react";
 import {useContext} from "react";
 import {AppContext} from "../index";
 import {ProductForm} from "./products";
+import ListView from "./listView";
+
 
 const NewList = () => {
     const {state, setState} = useContext(AppContext);
 
-    let filteredProducts = state.products.filter(function(element){return element.visibility === false})
-    let newListData = {
-        name: state.listNameInput,
-        id: "",
-        productsToBuy: filteredProducts
-    }
-
-    console.log(newListData)
+    let filteredProducts = state.products.filter(function (element) {
+        return element.visibility === false
+    })
 
     const handleProduct = (product, visibility) => {
 
@@ -27,8 +24,21 @@ const NewList = () => {
         }))
     }
 
-    const handleAddList = function(e) {
+    const currentListId = (id) => {
+        setState(prev => ({
+            ...prev,
+            currentList: id
+        }))
+    }
+
+    const handleAddList = function (e) {
         e.preventDefault();
+
+        let newListData = {
+            name: state.listNameInput,
+            id: "",
+            productsToBuy: filteredProducts
+        }
 
         fetch("http://localhost:3005/lists", {
                 method: "POST",
@@ -38,16 +48,21 @@ const NewList = () => {
         )
             .then(response => response.json())
             .then(data => {
-                console.log(data);
+                setState(prev => ({
+                    ...prev,
+                    lists: [...prev.lists, data]
+                }))
+                currentListId(data.id)
             })
             .catch(error => {
                 console.log(error);
             })
+        handleDisplayName(e)
     };
 
-    const handleDisplayName = function(e) {
+    const handleDisplayName = function (e) {
         e.preventDefault();
-        setState(prev=>({...prev, displayName: true}))
+        setState(prev => ({...prev, displayName: true}))
     };
 
     let counter = 0;
@@ -70,24 +85,28 @@ const NewList = () => {
                 </button>
             </div>
 
-            {state.displayName ? "" :
-                <form className="listNameForm productsForm" onSubmit={handleDisplayName}>
+            {state.displayName ?
+                <div className="center">
+                    <Link to="/routes/listview"
+                          element={<ListView/>}
+                          className="mainButton">
+                        Go shopping</Link>
+                </div>
+                :
+                <form className="listNameForm productsForm">
                     <input type="text"
                            value={state.listNameInput}
                            onChange={e => setState(prev => ({...prev, listNameInput: e.target.value}))}
                            id="newListName"
                            placeholder="nazwa"></input>
-                    <button className="newProductButton button" >
-                        <i className="fa-solid fa-check"></i>
-                    </button>
                 </form>
             }
 
-            <ProductForm />
+            <ProductForm/>
 
             <div className="choose">
                 <div className="productsChoose">wybierz
-                    {state.products.map(function(product) {
+                    {state.products.map(function (product) {
                         return (
                             product.visibility === true ?
                                 <div key={product.id} className="listProduct">
@@ -102,23 +121,26 @@ const NewList = () => {
                                             <i className="fa-solid fa-minus"></i>
                                         </button>
                                         <div className="quantity listProductBox">{counter}</div>
-                                        <button className="button listProductBox" onClick={() => handleProduct(product.name, false)}>
+                                        <button className="button listProductBox"
+                                                onClick={() => handleProduct(product.name, false)}>
                                             <i className="fa-solid fa-angle-right"></i>
                                         </button>
                                     </div>
                                 </div>
                                 : ""
-                        )})}
+                        )
+                    })}
                 </div>
                 <div className="listPreview">podgląd
 
-                    {state.products.map(function(product) {
+                    {state.products.map(function (product) {
                         return (
                             product.visibility === false ?
                                 <div key={product.id} className="listProduct">
 
                                     <div className="productButtons">
-                                        <button className="button listProductBox" onClick={() => handleProduct(product.name, true)}>
+                                        <button className="button listProductBox"
+                                                onClick={() => handleProduct(product.name, true)}>
                                             <i className="fa-solid fa-angle-left"></i>
                                         </button>
                                         <div className="quantity listProductBox">{counter}</div>
@@ -129,26 +151,19 @@ const NewList = () => {
                                         <button className="button listProductBox" onClick={() => handleCounter(-1)}>
                                             <i className="fa-solid fa-minus"></i>
                                         </button>
-
                                     </div>
                                     <div className="productDescription">
                                         <div className="productName">{product.name}</div>
                                     </div>
                                 </div>
                                 : ""
-
-                        )})}
+                        )
+                    })}
 
                 </div>
             </div>
 
-
-            <div className="center">
-                Creating new shopping list<br/>
-                sortowanie wg kategorii lub kolejności<br/>
-                "go shopping"
-            </div>
-        <Outlet />
+            <Outlet/>
         </div>
     )
 }

@@ -1,0 +1,18 @@
+.listToCheck {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.productToCheck {
+  background-color: $color-box-background;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  gap: 40px;
+  border: 1px solid $color-blue-accent;
+  min-width: 250px;
+}
